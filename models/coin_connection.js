@@ -6,7 +6,7 @@ class SocketClass {
         this.url = url;
     }
 
-    getting(callback) {
+    gettingData(callback) {
 
         // return nothing
         let client = new WebSocketClient();
@@ -24,11 +24,11 @@ class SocketClass {
                 callback(error, null);
             });
             connection.on('close', function (data) {
-                callback(null, data);
+                callback(null, {data: data, type: 'close'});
             });
             connection.on('message', function (event) {
                 let message = JSON.parse(event.utf8Data)
-                callback(null, message);
+                callback(null, {data:message, type: 'msg'});
             });
         });
 

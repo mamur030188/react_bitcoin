@@ -10,12 +10,6 @@ setTimeout(function () {
 }, 1000);
 
 
-// job.scheduleJob('*/1 0-23 * * * ', () => {
-//     console.log('computed');
-//     shell.exec("node coins/bitcoin.js", {async: true});
-// });
-
-
 
 
 const server = http.createServer(app);
